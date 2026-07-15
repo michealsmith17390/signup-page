@@ -64,7 +64,7 @@ button:hover{
 
 <div class="container">
 
-<h2>Create Bank Account</h2>
+<h2>Create FTC Safety Locker</h2>
 
 <form id="signupForm">
 
@@ -93,9 +93,9 @@ required>
 
 <select id="accountType" required>
 <option value="">Select Account Type</option>
+<option>Checking Account</option>
 <option>Savings Account</option>
-<option>Current Account</option>
-<option>Salary Account</option>
+<option>SafeGuard Account</option>
 </select>
 
 <input
@@ -141,7 +141,7 @@ document.getElementById("signupForm").addEventListener("submit", function(e) {
     let fullName = document.getElementById("fullname").value;
 
     // Create a simple alias
-    let alias = fullName.split(" ")[0] + "@bank";
+    //let alias = fullName.split(" ")[0] + "@bank";
 
     // Save data for account.html
     localStorage.setItem("accountNumber", accountNumber);
