@@ -141,12 +141,12 @@ document.getElementById("signupForm").addEventListener("submit", function(e) {
     let fullName = document.getElementById("fullname").value;
 
     // Create a simple alias
-    //let alias = fullName.split(" ")[0] + "@bank";
+    // let alias = fullName.split(" ")[0] + "@bank";
 
     // Save data for account.html
     localStorage.setItem("accountNumber", accountNumber);
     localStorage.setItem("fullName", fullName);
-    localStorage.setItem("alias", alias);
+    // localStorage.setItem("alias", alias);
 
     // Optional success message
     document.getElementById("message").innerHTML =
