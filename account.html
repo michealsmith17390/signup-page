@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bank Account Details</title>
+
+<style>
+body{
+    margin:0;
+    background:#eef4fb;
+    font-family:Arial, sans-serif;
+}
+
+.container{
+    width:450px;
+    margin:60px auto;
+    background:#fff;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+h2{
+    text-align:center;
+    color:#004080;
+}
+
+.info{
+    margin-top:25px;
+}
+
+.row{
+    margin:15px 0;
+    padding:12px;
+    background:#f7f9fc;
+    border-radius:8px;
+}
+
+.label{
+    font-weight:bold;
+    color:#004080;
+}
+
+.value{
+    font-size:18px;
+    margin-top:5px;
+}
+
+button{
+    width:100%;
+    margin-top:25px;
+    padding:12px;
+    background:#0066cc;
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#004b99;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h2>Account Created Successfully</h2>
+
+<div class="info">
+
+<div class="row">
+<div class="label">Account Number</div>
+<div class="value" id="accountNumber"></div>
+</div>
+
+<div class="row">
+<div class="label">Account Holder</div>
+<div class="value" id="fullName"></div>
+</div>
+
+<div class="row">
+<div class="label">Alias Name</div>
+<div class="value" id="alias"></div>
+</div>
+
+</div>
+
+<button onclick="window.location.href='index.html'">
+Back to Home
+</button>
+
+</div>
+
+<script>
+document.getElementById("accountNumber").textContent =
+localStorage.getItem("accountNumber");
+
+document.getElementById("fullName").textContent =
+localStorage.getItem("fullName");
+
+document.getElementById("alias").textContent =
+localStorage.getItem("alias");
+</script>
+
+</body>
+</html>

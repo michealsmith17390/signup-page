@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bank Account Sign Up</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f7fa;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.container{
+    background:white;
+    width:420px;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+
+h2{
+    text-align:center;
+    color:#004080;
+}
+
+input, select{
+    width:100%;
+    padding:12px;
+    margin:8px 0;
+    border:1px solid #ccc;
+    border-radius:5px;
+    font-size:15px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#0066cc;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    background:#004c99;
+}
+
+.success{
+    color:green;
+    text-align:center;
+    margin-top:15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Create Bank Account</h2>
+
+<form id="signupForm">
+
+<input
+type="text"
+id="fullname"
+placeholder="Full Name"
+required>
+
+<input
+type="email"
+id="email"
+placeholder="Email Address"
+required>
+
+<input
+type="tel"
+id="phone"
+placeholder="Phone Number"
+required>
+
+<input
+type="date"
+id="dob"
+required>
+
+<select id="accountType" required>
+<option value="">Select Account Type</option>
+<option>Savings Account</option>
+<option>Current Account</option>
+<option>Salary Account</option>
+</select>
+
+<input
+type="password"
+id="password"
+placeholder="Create Password"
+required>
+
+<input
+type="password"
+id="confirmPassword"
+placeholder="Confirm Password"
+required>
+
+<button type="submit">
+Create Account
+</button>
+
+</form>
+
+<div class="success" id="message"></div>
+
+</div>
+
+<script>
+document.getElementById("signupForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let password = document.getElementById("password").value;
+    let confirm = document.getElementById("confirmPassword").value;
+
+    if (password !== confirm) {
+        alert("Passwords do not match.");
+        return;
+    }
+
+    // Generate a random 12-digit account number
+    let accountNumber = "";
+    for (let i = 0; i < 12; i++) {
+        accountNumber += Math.floor(Math.random() * 10);
+    }
+
+    let fullName = document.getElementById("fullname").value;
+
+    // Create a simple alias
+    let alias = fullName.split(" ")[0] + "@bank";
+
+    // Save data for account.html
+    localStorage.setItem("accountNumber", accountNumber);
+    localStorage.setItem("fullName", fullName);
+    localStorage.setItem("alias", alias);
+
+    // Optional success message
+    document.getElementById("message").innerHTML =
+        "Account application submitted successfully! Redirecting...";
+
+    // Redirect after 1 second
+    setTimeout(function() {
+        window.location.href = "account.html";
+    }, 1000);
+});
+</script>
+
+</body>
+</html>
