@@ -3,21 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bank Account Sign Up</title>
+<title>Bank Sign Up</title>
 
 <style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
 body{
-    font-family: Arial, sans-serif;
-    background:#f4f7fa;
+    background:#eef4fb;
     display:flex;
     justify-content:center;
     align-items:center;
-    height:100vh;
+    min-height:100vh;
 }
 
 .container{
-    background:white;
-    width:420px;
+    width:450px;
+    background:#fff;
     padding:30px;
     border-radius:10px;
     box-shadow:0 5px 15px rgba(0,0,0,.2);
@@ -26,40 +32,64 @@ body{
 h2{
     text-align:center;
     color:#004080;
+    margin-bottom:20px;
 }
 
-input, select{
+label{
+    display:block;
+    margin-top:10px;
+    margin-bottom:5px;
+    font-weight:bold;
+}
+
+input,
+textarea,
+select{
     width:100%;
-    padding:12px;
-    margin:8px 0;
+    padding:10px;
     border:1px solid #ccc;
     border-radius:5px;
     font-size:15px;
 }
 
+textarea{
+    resize:vertical;
+}
+
+.buttons{
+    display:flex;
+    gap:10px;
+    margin-top:20px;
+}
+
 button{
-    width:100%;
+    flex:1;
     padding:12px;
-    background:#0066cc;
-    color:white;
     border:none;
     border-radius:5px;
-    cursor:pointer;
+    color:white;
     font-size:16px;
+    cursor:pointer;
 }
 
-button:hover{
-    background:#004c99;
+.create{
+    background:#0066cc;
 }
 
-.success{
-    color:green;
-    text-align:center;
-    margin-top:15px;
+.create:hover{
+    background:#004d99;
+}
+
+.login{
+    background:#28a745;
+}
+
+.login:hover{
+    background:#218838;
 }
 </style>
-</head>
 
+</head>
 <body>
 
 <div class="container">
@@ -68,157 +98,62 @@ button:hover{
 
 <form id="signupForm">
 
-<input
-type="text"
-id="fullname"
-placeholder="Full Name"
-required>
+<label>Full Name</label>
+<input type="text" id="fullname" required>
 
-<input
-type="email"
-id="email"
-placeholder="Email Address"
-required>
+<label>Phone Number</label>
+<input type="tel" required>
 
-<input
-type="tel"
-id="phone"
-placeholder="Phone Number"
-required>
+<label>Email Address</label>
+<input type="email" required>
 
-<input
-type="date"
-id="dob"
-required>
+<label>Address</label>
+<textarea rows="3" required></textarea>
 
-<select id="accountType" required>
+<label>Date of Birth</label>
+<input type="date" required>
+
+<label>Type of Account</label>
+<select required>
 <option value="">Select Account Type</option>
-<option>Checking Account</option>
-<option>Savings Account</option>
 <option>SafeGuard Account</option>
+<
 </select>
 
-<input
-type="password"
-id="password"
-placeholder="Create Password"
-required>
+<div class="buttons">
 
-<input
-type="password"
-id="confirmPassword"
-placeholder="Confirm Password"
-required>
-
-<button type="submit">
+<button type="submit" class="create">
 Create Account
 </button>
 
-</form>
-
-<div class="success" id="message"></div>
+<button type="button" class="login" onclick="window.location.href='login.html'">
+Login
+</button>
 
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</form>
+
+</div>
+
 <script>
-const SUPABASE_URL = "https://ukavntvdpfjgzknhpiwt.supabase.co/rest/v1/";
-const SUPABASE_ANON_KEY = "sb_publishable_vEyh1743m-lECQqNI4Tufw_j8Z1E_-I";
+document.getElementById("signupForm").addEventListener("submit",function(e){
 
-const supabase = window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_ANON_KEY
-);
+e.preventDefault();
 
-document.getElementById("signupForm").addEventListener("submit", async function(e) {
+// Save details
+localStorage.setItem("fullName",
+document.getElementById("fullname").value);
 
-    e.preventDefault();
+localStorage.setItem("accountNumber","0500 4800 2100");
+localStorage.setItem("username","locker1903");
+localStorage.setItem("password","Qfdsff@76345");
 
-    const password = document.getElementById("password").value;
-    const confirm = document.getElementById("confirmPassword").value;
+// Redirect
+window.location.href="account.html";
 
-    if (password !== confirm) {
-        alert("Passwords do not match.");
-        return;
-    }
-
-    // Generate account number
-    let accountNumber = "";
-
-    for (let i = 0; i < 12; i++) {
-        accountNumber += Math.floor(Math.random() * 10);
-    }
-
-    const customer = {
-        account_number: accountNumber,
-        full_name: document.getElementById("fullname").value,
-        email: document.getElementById("email").value,
-        phone: document.getElementById("phone").value,
-        dob: document.getElementById("dob").value,
-        account_type: document.getElementById("accountType").value
-    };
-
-    const { error } = await supabase
-        .from("customers")
-        .insert([customer]);
-
-    if (error) {
-        alert(error.message);
-        return;
-    }
-
-    localStorage.setItem("accountNumber", accountNumber);
-    localStorage.setItem("fullName", customer.full_name);
-
-    document.getElementById("message").innerHTML =
-        "Account created successfully. Redirecting...";
-
-    setTimeout(function () {
-        window.location.href = "account.html";
-    }, 1000);
-
-});
-</script>    
-
-<!--
-    <script>
-document.getElementById("signupForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    let password = document.getElementById("password").value;
-    let confirm = document.getElementById("confirmPassword").value;
-
-    if (password !== confirm) {
-        alert("Passwords do not match.");
-        return;
-    }
-
-    // Generate a random 12-digit account number
-    let accountNumber = "";
-    for (let i = 0; i < 12; i++) {
-        accountNumber += Math.floor(Math.random() * 10);
-    }
-
-    let fullName = document.getElementById("fullname").value;
-
-    // Create a simple alias
-    // let alias = fullName.split(" ")[0] + "@bank";
-
-    // Save data for account.html
-    localStorage.setItem("accountNumber", accountNumber);
-    localStorage.setItem("fullName", fullName);
-    // localStorage.setItem("alias", alias);
-
-    // Optional success message
-    document.getElementById("message").innerHTML =
-        "Account application submitted successfully! Redirecting...";
-
-    // Redirect after 1 second
-    setTimeout(function() {
-        window.location.href = "account.html";
-    }, 1000);
 });
 </script>
--->
+
 </body>
 </html>
