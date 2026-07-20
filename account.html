@@ -1,3 +1,5 @@
+
+<!--
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,8 +82,22 @@ button:hover{
 
 <div class="row">
 <div class="label">Account Holder</div>
-<div class="value" id="fullName"></div>
+<div class="value" id="name"></div>
 </div>
+
+
+<div class="row">
+<div class="label">Username</div>
+<div class="value">qwerty7856</div>
+</div>
+
+<div class="row">
+<div class="label">Password</div>
+<div class="value">asdfgh@6386</div>
+</div>
+
+</div>
+
 <!--
 <div class="row">
 <div class="label">Alias Name</div>
@@ -90,9 +106,7 @@ button:hover{
 -->
 </div>
 
-<button onclick="window.location.href='index.html'">
-Back to Home
-</button>
+
 
 </div>
 
@@ -105,6 +119,118 @@ localStorage.getItem("fullName");
 
 //document.getElementById("alias").textContent =
 //localStorage.getItem("alias");
+</script>
+
+</body>
+</html>
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Account Details</title>
+
+<style>
+body{
+    margin:0;
+    background:#eef4fb;
+    font-family:Arial,sans-serif;
+}
+
+.container{
+    width:450px;
+    margin:60px auto;
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+
+h2{
+    text-align:center;
+    color:#004080;
+}
+
+.row{
+    margin-top:15px;
+    padding:12px;
+    background:#f7f9fc;
+    border-radius:8px;
+}
+
+.label{
+    font-weight:bold;
+    color:#004080;
+}
+
+.value{
+    margin-top:5px;
+    font-size:18px;
+}
+
+button{
+    width:100%;
+    margin-top:25px;
+    padding:12px;
+    background:#0066cc;
+    color:white;
+    border:none;
+    border-radius:5px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#004d99;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h2>Account Created Successfully</h2>
+
+<div class="row">
+<div class="label">Account Holder</div>
+<div class="value" id="name"></div>
+</div>
+
+<div class="row">
+<div class="label">Account Number</div>
+<div class="value" id="account"></div>
+</div>
+
+<div class="row">
+<div class="label">Username</div>
+<div class="value" id="username"></div>
+</div>
+
+<div class="row">
+<div class="label">Password</div>
+<div class="value" id="password"></div>
+</div>
+
+
+
+</div>
+
+<script>
+document.getElementById("name").textContent =
+localStorage.getItem("fullName");
+
+document.getElementById("account").textContent =
+localStorage.getItem("accountNumber");
+
+document.getElementById("username").textContent =
+localStorage.getItem("username");
+
+document.getElementById("password").textContent =
+localStorage.getItem("password");
 </script>
 
 </body>
