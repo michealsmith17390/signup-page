@@ -136,6 +136,29 @@ Login
 </div>
 
 <script>
+
+    // Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBvXS7gsLMxnGvFjj6t0qvX5rTRU7xhmvY",
+  authDomain: "ftc-locker-demo.firebaseapp.com",
+  projectId: "ftc-locker-demo",
+  storageBucket: "ftc-locker-demo.firebasestorage.app",
+  messagingSenderId: "387689169940",
+  appId: "1:387689169940:web:e7be28db6d7fe059449301",
+  measurementId: "G-L39XCRERLS"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+    
 document.getElementById("signupForm").addEventListener("submit",function(e){
 
 e.preventDefault();
