@@ -252,6 +252,24 @@ button{
     cursor:pointer;
 
 }
+    .button-group{
+    display:flex;
+    gap:10px;
+    margin-top:20px;
+}
+
+.button-group button{
+    flex:1;
+    margin-top:0;
+}
+
+.login-btn{
+    background:#28a745;
+}
+
+.login-btn:hover{
+    background:#218838;
+}
 
 
 button:hover{
@@ -342,11 +360,17 @@ SafeGuard Account
 
 </select>
 
+<div class="button-group">
+    <button type="submit">Create Account</button>
 
+    <button type="button" id="loginBtn" class="login-btn">
+        Log In
+    </button>
+</div>
 
-<button type="submit">
+<!--<button type="submit">
 Create Account
-</button>
+</button>-->
 
 
 </form>
@@ -502,6 +526,11 @@ message.innerHTML=
 
 
 }
+    const loginBtn = document.getElementById("loginBtn");
+
+loginBtn.addEventListener("click", function () {
+    window.location.href = "login.html";
+});
 
 
 
