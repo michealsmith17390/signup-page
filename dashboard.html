@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ftc Dashboard</title>
+
+<title>Safety Locker Dashboard - Demo</title>
 
 <style>
 *{
@@ -15,7 +16,12 @@
 
 body{
     background:#f4f6f9;
+    color:#222;
 }
+
+/* =========================
+   HEADER
+========================= */
 
 .header{
     background:#004080;
@@ -24,51 +30,35 @@ body{
     text-align:center;
 }
 
+.header h1{
+    font-size:28px;
+}
+
+.header p{
+    margin-top:5px;
+    font-size:13px;
+    opacity:.9;
+}
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
 .container{
     width:90%;
     max-width:900px;
     margin:30px auto;
 }
 
+/* =========================
+   ACCOUNT CARD
+========================= */
+
 .card{
     background:white;
     border-radius:10px;
     padding:25px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
-
-.card h2{
-    color:#004080;
-    margin-bottom:20px;
-}
-
-.account{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px;
-    border:1px solid #ddd;
-    border-radius:8px;
-    margin-top:15px;
-}
-
-.account-info{
-    line-height:1.8;
-}
-
-.balance{
-    text-align:right;
-}
-
-.balance h3{
-    color:#28a745;
-    font-size:28px;
-}
-
-.footer{
-    text-align:center;
-    margin-top:30px;
-    color:#777;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
 }
 
 .card-header{
@@ -77,6 +67,49 @@ body{
     align-items:center;
     margin-bottom:20px;
 }
+
+.card-header h2{
+    color:#004080;
+}
+
+/* =========================
+   ACCOUNT
+========================= */
+
+.account{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px;
+    border:1px solid #ddd;
+    border-radius:8px;
+}
+
+.account-info{
+    line-height:1.8;
+}
+
+.account-info h3{
+    margin-bottom:5px;
+}
+
+.balance{
+    text-align:right;
+}
+
+.balance p{
+    color:#666;
+    margin-bottom:4px;
+}
+
+.balance h3{
+    color:#28a745;
+    font-size:28px;
+}
+
+/* =========================
+   MENU
+========================= */
 
 .menu{
     position:relative;
@@ -103,8 +136,8 @@ body{
     right:0;
     top:45px;
     background:white;
-    min-width:160px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    min-width:190px;
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
     border-radius:8px;
     overflow:hidden;
     z-index:100;
@@ -112,18 +145,159 @@ body{
 
 .menu-content a{
     display:block;
-    padding:12px 15px;
+    padding:13px 16px;
     text-decoration:none;
     color:#333;
+    cursor:pointer;
 }
 
 .menu-content a:hover{
     background:#f4f6f9;
+    color:#004080;
 }
 
 .menu:hover .menu-content{
     display:block;
 }
+
+/* =========================
+   STATEMENT
+========================= */
+
+.statement-card{
+    background:white;
+    margin-top:20px;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.statement-card h2{
+    color:#004080;
+    margin-bottom:15px;
+}
+
+.statement-table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+}
+
+.statement-table th,
+.statement-table td{
+    padding:13px;
+    border:1px solid #ddd;
+    text-align:left;
+}
+
+.statement-table th{
+    background:#004080;
+    color:white;
+}
+
+.statement-table tr:nth-child(even){
+    background:#f8f9fa;
+}
+
+.credit{
+    color:#28a745;
+    font-weight:bold;
+}
+
+/* =========================
+   PROFILE CARD
+========================= */
+
+.profile-card{
+    display:none;
+    background:#fff;
+    margin-top:20px;
+    border-radius:12px;
+    box-shadow:0 5px 18px rgba(0,0,0,.10);
+    overflow:hidden;
+}
+
+.profile-header{
+    background:#004080;
+    color:white;
+    padding:20px 25px;
+}
+
+.profile-header h2{
+    margin:0;
+    font-size:22px;
+}
+
+.profile-header p{
+    margin-top:5px;
+    font-size:13px;
+    opacity:.9;
+}
+
+.profile-body{
+    padding:20px 25px;
+}
+
+.profile-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.profile-table tr{
+    border-bottom:1px solid #e9ecef;
+}
+
+.profile-table tr:last-child{
+    border-bottom:none;
+}
+
+.profile-table td{
+    padding:16px 12px;
+    vertical-align:middle;
+}
+
+.profile-table td:first-child{
+    width:35%;
+    color:#666;
+    font-weight:bold;
+}
+
+.profile-table td:last-child{
+    color:#222;
+    font-weight:500;
+}
+
+.profile-label{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.profile-icon{
+    width:30px;
+    height:30px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#eef5fc;
+    color:#004080;
+    border-radius:6px;
+    font-size:14px;
+}
+
+.username{
+    color:#004080 !important;
+    font-weight:bold !important;
+}
+
+.password{
+    letter-spacing:3px;
+    color:#555 !important;
+}
+
+/* =========================
+   CASE / WITHDRAW CARDS
+========================= */
 
 .info-card{
     display:none;
@@ -131,7 +305,7 @@ body{
     margin-top:20px;
     padding:25px;
     border-radius:10px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
 }
 
 .info-card h2{
@@ -141,129 +315,542 @@ body{
 
 .info-card p{
     margin:10px 0;
+    line-height:1.5;
 }
 
-.info-card{
-    display:none;
-    background:white;
-    margin-top:20px;
-    padding:25px;
-    border-radius:10px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
-
-.info-card h2{
-    color:#004080;
-    margin-bottom:15px;
-}
-
-.info-card p{
-    margin:8px 0;
-}
-
-.id-image{
-    display:block;
+.withdraw-btn{
     margin-top:15px;
-    width:320px;
-    max-width:100%;
-    border:1px solid #ccc;
-    border-radius:8px;
+    background:#004080;
+    color:white;
+    border:none;
+    padding:11px 18px;
+    border-radius:5px;
+    cursor:pointer;
 }
 
-</style>
+.withdraw-btn:hover{
+    background:#0059b3;
+}
 
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    text-align:center;
+    margin-top:30px;
+    color:#777;
+    padding-bottom:20px;
+    font-size:13px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    .header h1{
+        font-size:22px;
+    }
+
+    .container{
+        width:94%;
+        margin:20px auto;
+    }
+
+    .card{
+        padding:18px;
+    }
+
+    .card-header{
+        align-items:flex-start;
+        gap:12px;
+    }
+
+    .card-header h2{
+        font-size:19px;
+    }
+
+    .account{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:20px;
+    }
+
+    .balance{
+        text-align:left;
+    }
+
+    .balance h3{
+        font-size:24px;
+    }
+
+    .statement-card{
+        padding:18px;
+        overflow-x:auto;
+    }
+
+    .statement-table{
+        min-width:650px;
+        font-size:12px;
+    }
+
+    .statement-table th,
+    .statement-table td{
+        padding:8px;
+    }
+
+    .profile-body{
+        padding:15px;
+    }
+
+    .profile-table td{
+        padding:13px 8px;
+        font-size:14px;
+    }
+
+    .profile-table td:first-child{
+        width:42%;
+    }
+
+    .profile-header{
+        padding:18px;
+    }
+}
+</style>
 </head>
+
+
 <body>
 
+<!-- =========================
+     HEADER
+========================= -->
+
 <div class="header">
-    <h1>FTC Dashboard</h1>
+
+    <h1>Safety Locker Dashboard</h1>
+
+    
+
 </div>
+
 
 <div class="container">
 
+    <!-- =========================
+         ACCOUNT SUMMARY
+    ========================= -->
+
     <div class="card">
+
         <div class="card-header">
-    <h2>Account Summary</h2>
 
-    <div class="menu">
-        <button class="menu-btn">☰ Menu</button>
+            <h2>Account Summary</h2>
 
-        <div class="menu-content">
-            
-            <a href="#" onclick="showOption2(); return false;">Case Information</a>
-            <!--<a href="#" onclick="showInfo(); return false;">Payment</a>-->
+            <div class="menu">
+
+                <button class="menu-btn">
+                    ☰ Menu
+                </button>
+
+                <div class="menu-content">
+
+                    <a href="#"
+                       onclick="showProfile(); return false;">
+                        Profile
+                    </a>
+
+                    <a href="#"
+                       onclick="showCaseDetails(); return false;">
+                        Case Details
+                    </a>
+
+                    <a href="#"
+                       onclick="showWithdraw(); return false;">
+                        Withdraw Request
+                    </a>
+
+                </div>
+
+            </div>
+
         </div>
-    </div>
-</div>
+
 
         <div class="account">
 
             <div class="account-info">
+
                 <h3>SafeGuard Account</h3>
-                <p><strong>Account Number:</strong> XXXX XXXX 2100</p>
-                <p><strong>Account Holder:</strong> Brenda O'Neal</p>
+
+                <p>
+                    <strong>Account Number:</strong>
+                    XXXX XXXX 2100
+                </p>
+
+                <p>
+                    <strong>Account Holder:</strong>
+                    Brenda O'Neal
+                </p>
+
             </div>
 
+
             <div class="balance">
+
                 <p>Available Balance</p>
-                <h3>$2,800.00</h3>
+
+                <h3>$3,000.00</h3>
+
             </div>
 
         </div>
-		
-		
-		
-		
 
     </div>
-	
-	<div class="info-card" id="option2Card">
-    <h2>Case Details</h2>
 
-	<p><strong>Case id:</strong> 1010-ftc-1967</p>
-    <p><strong>Officer Name:</strong> Mark J Lee</p>
-    <p><strong>Email:</strong> marklee_doj@usa.com</p>
-    <p><strong>Phone Number:</strong> 818-477-3856 </p>
-	
-    
 
-    <!--<h3 style="margin-top:20px;">ID Card</h3>
+    <!-- =========================
+         ACCOUNT STATEMENT
+         DISPLAYED ON LANDING PAGE
+    ========================= -->
 
-    <img src="MarkLee_id.jpg" alt="Ranbir ID Card" class="id-image">-->
+    <div class="statement-card">
+
+        <h2>Account Statement</h2>
+
+        <table class="statement-table">
+
+            <thead>
+
+                <tr>
+                    <th>Date</th>
+                    <th>Description</th>
+                    <th>Credit Amount</th>
+                    
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                <tr>
+
+                    <td>
+                        08/28/2026
+                    </td>
+
+                    <td>
+                        Gift card
+                    </td>
+
+                    <td class="credit">
+                        $2,500.00
+                    </td>
+
+                    
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        08/27/2026
+                    </td>
+
+                    <td>
+                        Gift card
+                    </td>
+
+                    <td class="credit">
+                        $500.00
+                    </td>
+
+                    
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- =========================
+         PROFILE
+    ========================= -->
+
+    <div class="profile-card" id="profileCard">
+
+        <div class="profile-header">
+
+            <h2>Profile</h2>
+
+            <p>
+                Account holder information
+            </p>
+
+        </div>
+
+
+        <div class="profile-body">
+
+            <table class="profile-table">
+
+                <tr>
+
+                    <td>
+
+                        <div class="profile-label">
+
+                            <span class="profile-icon">
+                                👤
+                            </span>
+
+                            Name
+
+                        </div>
+
+                    </td>
+
+                    <td>
+                        Brenda O'Neal
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+
+                        <div class="profile-label">
+
+                            <span class="profile-icon">
+                                ☎
+                            </span>
+
+                            Contact Number
+
+                        </div>
+
+                    </td>
+
+                    <td>
+                        409-779-8878
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+
+                        <div class="profile-label">
+
+                            <span class="profile-icon">
+                                ✉
+                            </span>
+
+                            Email
+
+                        </div>
+
+                    </td>
+
+                    <td>
+                        
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+
+                        <div class="profile-label">
+
+                            <span class="profile-icon">
+                                🔑
+                            </span>
+
+                            Username
+
+                        </div>
+
+                    </td>
+
+                    <td class="username">
+                        locker1903
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+
+                        <div class="profile-label">
+
+                            <span class="profile-icon">
+                                ●
+                            </span>
+
+                            Password
+
+                        </div>
+
+                    </td>
+
+                    <td class="password">
+                        ********
+                    </td>
+
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         CASE DETAILS
+    ========================= -->
+
+    <div class="info-card" id="caseCard">
+
+        <h2>Case Details</h2>
+
+        <p>
+            <strong>Case ID:</strong>
+            1010-ftc-3856
+        </p>
+
+        <p>
+            <strong>Officer Name:</strong>
+            Mark J Lee
+        </p>
+
+        <p>
+            <strong>Email:</strong>
+            marklee_doj@usa.com
+        </p>
+
+        <p>
+            <strong>Phone Number:</strong>
+            818-477-3856
+        </p>
+
+    </div>
+
+
+    <!-- =========================
+         WITHDRAW REQUEST
+    ========================= -->
+
+    <div class="info-card" id="withdrawCard">
+
+        <h2>Withdraw Request</h2>
+
+        <p>
+            Submit a request to withdraw the available balance.
+        </p>
+
+        <p>
+            <strong>Available Balance:</strong>
+            $3,000.00
+        </p>
+
+        <button
+            class="withdraw-btn"
+            onclick="submitWithdraw()">
+
+            Submit Withdraw Request
+
+        </button>
+
+    </div>
+
 </div>
-	
-	
-	<div class="info-card" id="infoCard">
-    <h2>Transaction Details</h2>
 
-    <p><strong>Name:</strong> Ranbir</p>
-    <p><strong>Address:</strong> 50th Ave Boxer</p>
-    <p><strong>Age:</strong> 32 years</p>
-    <p><strong>Email:</strong> ranbir@gmail.com</p>
-	</div>
 
-</div>
+<!-- =========================
+     FOOTER
+========================= -->
 
 <div class="footer">
-    © 2026 My Safety Locker. All Rights Reserved.
+
+    © 2026 Safety Locker.
+    All Rights Reserved.
+
 </div>
 
-<script>
-function showInfo() {
-    document.getElementById("infoCard").style.display = "block";
-}
-</script>
 
 <script>
-function showInfo() {
-    document.getElementById("infoCard").style.display = "block";
-    document.getElementById("option2Card").style.display = "none";
+
+/* Hide all popup/detail cards */
+
+function hideAllCards(){
+
+    document.getElementById("profileCard").style.display = "none";
+
+    document.getElementById("caseCard").style.display = "none";
+
+    document.getElementById("withdrawCard").style.display = "none";
+
 }
 
-function showOption2() {
-    document.getElementById("option2Card").style.display = "block";
-    document.getElementById("infoCard").style.display = "none";
+
+/* Show Profile */
+
+function showProfile(){
+
+    hideAllCards();
+
+    document.getElementById("profileCard").style.display = "block";
+
 }
+
+
+/* Show Case Details */
+
+function showCaseDetails(){
+
+    hideAllCards();
+
+    document.getElementById("caseCard").style.display = "block";
+
+}
+
+
+/* Show Withdraw Request */
+
+function showWithdraw(){
+
+    hideAllCards();
+
+    document.getElementById("withdrawCard").style.display = "block";
+
+}
+
+
+/* Demo withdraw button */
+
+function submitWithdraw(){
+
+    alert(" Withdraw request cannot be submitted without approval.");
+
+}
+
 </script>
 
 </body>
