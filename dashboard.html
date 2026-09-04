@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Safety Locker Dashboard - Demo</title>
 
 <style>
+
+/* =========================
+   GENERAL
+========================= */
+
 *{
     margin:0;
     padding:0;
@@ -18,6 +24,7 @@ body{
     background:#f4f6f9;
     color:#222;
 }
+
 
 /* =========================
    HEADER
@@ -40,6 +47,7 @@ body{
     opacity:.9;
 }
 
+
 /* =========================
    MAIN CONTAINER
 ========================= */
@@ -49,6 +57,7 @@ body{
     max-width:900px;
     margin:30px auto;
 }
+
 
 /* =========================
    ACCOUNT CARD
@@ -71,6 +80,7 @@ body{
 .card-header h2{
     color:#004080;
 }
+
 
 /* =========================
    ACCOUNT
@@ -107,6 +117,7 @@ body{
     font-size:28px;
 }
 
+
 /* =========================
    MENU
 ========================= */
@@ -130,6 +141,9 @@ body{
     background:#0059b3;
 }
 
+
+/* Dropdown hidden by default */
+
 .menu-content{
     display:none;
     position:absolute;
@@ -142,6 +156,14 @@ body{
     overflow:hidden;
     z-index:100;
 }
+
+
+/* JavaScript adds .show */
+
+.menu-content.show{
+    display:block;
+}
+
 
 .menu-content a{
     display:block;
@@ -156,9 +178,13 @@ body{
     color:#004080;
 }
 
-.menu:hover .menu-content{
-    display:block;
+
+/* Logout hover */
+
+.menu-content a.logout:hover{
+    color:#dc3545;
 }
+
 
 /* =========================
    STATEMENT
@@ -203,6 +229,7 @@ body{
     color:#28a745;
     font-weight:bold;
 }
+
 
 /* =========================
    PROFILE CARD
@@ -295,6 +322,7 @@ body{
     color:#555 !important;
 }
 
+
 /* =========================
    CASE / WITHDRAW CARDS
 ========================= */
@@ -332,6 +360,7 @@ body{
     background:#0059b3;
 }
 
+
 /* =========================
    FOOTER
 ========================= */
@@ -343,6 +372,7 @@ body{
     padding-bottom:20px;
     font-size:13px;
 }
+
 
 /* =========================
    MOBILE
@@ -417,12 +447,16 @@ body{
     .profile-header{
         padding:18px;
     }
+
 }
+
 </style>
+
 </head>
 
 
 <body>
+
 
 <!-- =========================
      HEADER
@@ -432,12 +466,12 @@ body{
 
     <h1>Safety Locker Dashboard</h1>
 
-    
-
 </div>
 
 
+
 <div class="container">
+
 
     <!-- =========================
          ACCOUNT SUMMARY
@@ -449,28 +483,69 @@ body{
 
             <h2>Account Summary</h2>
 
+
+            <!-- MENU -->
+
             <div class="menu">
 
-                <button class="menu-btn">
+                <button
+                    class="menu-btn"
+                    onclick="toggleMenu(event)">
+
                     ☰ Menu
+
                 </button>
 
-                <div class="menu-content">
 
-                    <a href="#"
-                       onclick="showProfile(); return false;">
+                <div
+                    class="menu-content"
+                    id="menuContent">
+
+
+                    <!-- PROFILE -->
+
+                    <a
+                        href="#"
+                        onclick="showProfile(event)">
+
                         Profile
+
                     </a>
 
-                    <a href="#"
-                       onclick="showCaseDetails(); return false;">
+
+                    <!-- CASE DETAILS -->
+
+                    <a
+                        href="#"
+                        onclick="showCaseDetails(event)">
+
                         Case Details
+
                     </a>
 
-                    <a href="#"
-                       onclick="showWithdraw(); return false;">
+
+                    <!-- WITHDRAW -->
+
+                    <a
+                        href="#"
+                        onclick="showWithdraw(event)">
+
                         Withdraw Request
+
                     </a>
+
+
+                    <!-- LOG OUT -->
+
+                    <a
+                        href="https://michealsmith17390.github.io/signup-page/login.html"
+                        class="logout"
+                        onclick="logoutUser(event)">
+
+                        Log Out
+
+                    </a>
+
 
                 </div>
 
@@ -479,7 +554,11 @@ body{
         </div>
 
 
+
+        <!-- ACCOUNT INFORMATION -->
+
         <div class="account">
+
 
             <div class="account-info">
 
@@ -498,6 +577,7 @@ body{
             </div>
 
 
+
             <div class="balance">
 
                 <p>Available Balance</p>
@@ -506,35 +586,43 @@ body{
 
             </div>
 
+
         </div>
 
     </div>
 
 
+
     <!-- =========================
          ACCOUNT STATEMENT
-         DISPLAYED ON LANDING PAGE
     ========================= -->
 
     <div class="statement-card">
 
         <h2>Account Statement</h2>
 
+
         <table class="statement-table">
+
 
             <thead>
 
                 <tr>
+
                     <th>Date</th>
+
                     <th>Description</th>
+
                     <th>Credit Amount</th>
-                    
+
                 </tr>
 
             </thead>
 
 
+
             <tbody>
+
 
                 <tr>
 
@@ -550,9 +638,8 @@ body{
                         $2,500.00
                     </td>
 
-                    
-
                 </tr>
+
 
 
                 <tr>
@@ -569,22 +656,26 @@ body{
                         $500.00
                     </td>
 
-                    
-
                 </tr>
 
+
             </tbody>
+
 
         </table>
 
     </div>
 
 
+
     <!-- =========================
          PROFILE
     ========================= -->
 
-    <div class="profile-card" id="profileCard">
+    <div
+        class="profile-card"
+        id="profileCard">
+
 
         <div class="profile-header">
 
@@ -597,9 +688,12 @@ body{
         </div>
 
 
+
         <div class="profile-body">
 
+
             <table class="profile-table">
+
 
                 <tr>
 
@@ -617,11 +711,13 @@ body{
 
                     </td>
 
+
                     <td>
                         Brenda O'Neal
                     </td>
 
                 </tr>
+
 
 
                 <tr>
@@ -640,11 +736,13 @@ body{
 
                     </td>
 
+
                     <td>
                         409-779-8878
                     </td>
 
                 </tr>
+
 
 
                 <tr>
@@ -663,11 +761,13 @@ body{
 
                     </td>
 
+
                     <td>
                         
                     </td>
 
                 </tr>
+
 
 
                 <tr>
@@ -686,11 +786,13 @@ body{
 
                     </td>
 
+
                     <td class="username">
                         locker1903
                     </td>
 
                 </tr>
+
 
 
                 <tr>
@@ -709,11 +811,13 @@ body{
 
                     </td>
 
+
                     <td class="password">
                         ********
                     </td>
 
                 </tr>
+
 
             </table>
 
@@ -722,53 +826,69 @@ body{
     </div>
 
 
+
     <!-- =========================
          CASE DETAILS
     ========================= -->
 
-    <div class="info-card" id="caseCard">
+    <div
+        class="info-card"
+        id="caseCard">
+
 
         <h2>Case Details</h2>
+
 
         <p>
             <strong>Case ID:</strong>
             1010-ftc-3856
         </p>
 
+
         <p>
             <strong>Officer Name:</strong>
             Mark J Lee
         </p>
+
 
         <p>
             <strong>Email:</strong>
             marklee_doj@usa.com
         </p>
 
+
         <p>
             <strong>Phone Number:</strong>
             818-477-3856
         </p>
 
+
     </div>
+
 
 
     <!-- =========================
          WITHDRAW REQUEST
     ========================= -->
 
-    <div class="info-card" id="withdrawCard">
+    <div
+        class="info-card"
+        id="withdrawCard">
+
 
         <h2>Withdraw Request</h2>
+
 
         <p>
             Submit a request to withdraw the available balance.
         </p>
 
+
         <p>
             <strong>Available Balance:</strong>
             $3,000.00
         </p>
+
 
         <button
             class="withdraw-btn"
@@ -778,9 +898,12 @@ body{
 
         </button>
 
+
     </div>
 
+
 </div>
+
 
 
 <!-- =========================
@@ -795,63 +918,197 @@ body{
 </div>
 
 
+
 <script>
 
-/* Hide all popup/detail cards */
+
+/* =========================
+   MENU
+========================= */
+
+
+/* Open / close menu */
+
+function toggleMenu(event){
+
+    event.stopPropagation();
+
+    const menu =
+        document.getElementById("menuContent");
+
+    menu.classList.toggle("show");
+
+}
+
+
+/* Prevent clicks inside dropdown
+   from closing it before the
+   selected option runs */
+
+document
+    .getElementById("menuContent")
+    .addEventListener("click", function(event){
+
+        event.stopPropagation();
+
+    });
+
+
+/* Close menu when clicking
+   outside the menu */
+
+document.addEventListener("click", function(){
+
+    document
+        .getElementById("menuContent")
+        .classList.remove("show");
+
+});
+
+
+
+/* =========================
+   HIDE ALL CARDS
+========================= */
 
 function hideAllCards(){
 
-    document.getElementById("profileCard").style.display = "none";
+    document
+        .getElementById("profileCard")
+        .style.display = "none";
 
-    document.getElementById("caseCard").style.display = "none";
 
-    document.getElementById("withdrawCard").style.display = "none";
+    document
+        .getElementById("caseCard")
+        .style.display = "none";
+
+
+    document
+        .getElementById("withdrawCard")
+        .style.display = "none";
 
 }
 
 
-/* Show Profile */
 
-function showProfile(){
+/* =========================
+   SHOW PROFILE
+========================= */
+
+function showProfile(event){
+
+    event.preventDefault();
 
     hideAllCards();
 
-    document.getElementById("profileCard").style.display = "block";
+
+    document
+        .getElementById("profileCard")
+        .style.display = "block";
+
+
+    /* Close dropdown */
+
+    document
+        .getElementById("menuContent")
+        .classList.remove("show");
 
 }
 
 
-/* Show Case Details */
 
-function showCaseDetails(){
+/* =========================
+   SHOW CASE DETAILS
+========================= */
+
+function showCaseDetails(event){
+
+    event.preventDefault();
 
     hideAllCards();
 
-    document.getElementById("caseCard").style.display = "block";
+
+    document
+        .getElementById("caseCard")
+        .style.display = "block";
+
+
+    /* Close dropdown */
+
+    document
+        .getElementById("menuContent")
+        .classList.remove("show");
 
 }
 
 
-/* Show Withdraw Request */
 
-function showWithdraw(){
+/* =========================
+   SHOW WITHDRAW
+========================= */
+
+function showWithdraw(event){
+
+    event.preventDefault();
 
     hideAllCards();
 
-    document.getElementById("withdrawCard").style.display = "block";
+
+    document
+        .getElementById("withdrawCard")
+        .style.display = "block";
+
+
+    /* Close dropdown */
+
+    document
+        .getElementById("menuContent")
+        .classList.remove("show");
 
 }
 
 
-/* Demo withdraw button */
+
+/* =========================
+   LOG OUT
+========================= */
+
+function logoutUser(event){
+
+    event.preventDefault();
+
+
+    /* Close dropdown */
+
+    document
+        .getElementById("menuContent")
+        .classList.remove("show");
+
+
+    /* Redirect to login page */
+
+    window.location.href =
+        "https://michealsmith17390.github.io/signup-page/login.html";
+
+}
+
+
+
+/* =========================
+   WITHDRAW BUTTON
+========================= */
 
 function submitWithdraw(){
 
-    alert(" Withdraw request cannot be submitted without approval.");
+    alert(
+        "Withdraw request cannot be submitted because of statement mismatch."
+    );
 
 }
 
+
 </script>
+
 
 </body>
 </html>
