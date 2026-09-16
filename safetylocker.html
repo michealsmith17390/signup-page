@@ -24,15 +24,25 @@ body{
 .container{
     width:450px;
     background:#fff;
-    padding:30px;
+    padding:0 30px 30px;
     border-radius:10px;
+    overflow:hidden;
     box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+
+/* Header Image */
+.header-image{
+    width:calc(100% + 60px);
+    height:150px;
+    margin-left:-30px;
+    object-fit:cover;
+    display:block;
 }
 
 h2{
     text-align:center;
     color:#004080;
-    margin-bottom:20px;
+    margin:25px 0 20px;
 }
 
 label{
@@ -94,6 +104,9 @@ button{
 
 <div class="container">
 
+<!-- Header Image -->
+<img src="ftclogo.png" alt="FTC Safety Locker Header" class="header-image">
+
 <h2>Create FTC Safety Locker</h2>
 
 <form id="signupForm">
@@ -137,8 +150,6 @@ Login
 
 <script>
 
-    
-    
 document.getElementById("signupForm").addEventListener("submit",function(e){
 
 e.preventDefault();
@@ -159,3 +170,4 @@ window.location.href="account.html";
 
 </body>
 </html>
+
